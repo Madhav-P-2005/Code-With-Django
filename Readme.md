@@ -84,8 +84,6 @@ python manage.py runserver
 
 ---
 
----
-
 ## 🧠 Understanding the Project Structure
 
 ### 🌐 `myproject/`
