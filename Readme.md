@@ -133,9 +133,7 @@ Stay tuned — this repository will grow with more content, projects, and best p
 
 ## 📚 References
 
-* [Django Official Docs](https://docs.djangoproject.com/en/stable/)
-* [Code With Harry - Django Playlist](https://www.youtube.com/playlist?list=PLu0W_9lII9agICnT8t4iYVSZ3eykIAOME)
-* [Scaler Topics - Django](https://www.scaler.com/topics/django/)
+* [Django Official Docs](https://docs.djangoproject.com/en/5.2/)
 
 ---
 
