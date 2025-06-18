@@ -1,0 +1,27 @@
+#  Ignore virtual environments
+MyEnvironment/
+venv/
+.env/
+
+#  Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+#  Ignore Django default DB
+db.sqlite3
+
+#  Ignore Django migration cache (optional)
+migrations
+**/migrations/__pycache__/
+**/migrations/*.pyc
+
+#  Ignore IDE-specific files
+.vscode/
+*.code-workspace
+
+#  Logs and system files
+*.log
+*.pot
+
+.git
