@@ -115,7 +115,51 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# Configuring STatic Files in settings.py :- 
+
+# 1️⃣ STATIC_URL (🔸Predefined by Django)
+# Purpose :-  This is the **base URL prefix** used when referencing static files in your templates.
+# Example in HTML :-  <link href="{% static 'css/style.css' %}">
+# This will generate :-  /static/css/style.css
+# Do NOT rename this variable. It is predefined by Django.
+
+STATIC_URL = '/static/'   # The value '/static/' is user-defined — you can technically rename it.
+
+
+# 2️⃣ STATIC_ROOT (🔸Predefined by Django)
+# Purpose :-  This is the **final directory** where all static files will be collected (using collectstatic) during production.
+# This folder is created when you run `python manage.py collectstatic`.
+# Used in production to serve all static files from one place.
+# Do NOT rename this variable. It is predefined by Django.
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'   # 'staticfiles' is  user-defined → you can rename it as you like.
+
+
+# 3️⃣ STATICFILES_DIRS (🔸Predefined by Django)
+# Purpose :-  Tells Django where to look for additional static files (outside apps) **during development**.
+# Example :-  You want a common 'static' folder at the root level for global styles, JS, images, etc.
+#  'static' folder is user-defined → You can name it anything, but 'static' is a common convention.
+#  STATICFILES_DIRS variable name is predefined by Django – do not rename it.
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"   # This is user-defined: "static" is a folder you create; you can name it differently.
+]
+
+
+
+'''
+
+=> This is correct which one to use ? 
+
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
