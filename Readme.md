@@ -24,7 +24,7 @@ mkdir Django-Learning && cd Django-Learning
 
 ---
 
-### 🐍 Step 2: Setup Virtual Environment (Highly Recommended)
+### 🐍 Step 2 :-  Setup Virtual Environment (Highly Recommended)
 
 ```bash
 python -m venv MyEnvironment
@@ -44,7 +44,7 @@ deactivate
 
 ---
 
-### 📦 Step 3: Install Django
+### 📦 Step 3 :-  Install Django
 
 ```bash
 pip install django
@@ -52,7 +52,7 @@ pip install django
 
 ---
 
-### ⚙️ Step 4: Start a Django Project
+### ⚙️ Step 4 :-  Start a Django Project
 
 ```bash
 django-admin startproject myproject .
@@ -62,7 +62,7 @@ django-admin startproject myproject .
 
 ---
 
-### 🧱 Step 5: Create an App
+### 🧱 Step 5 :-  Create an App
 
 ```bash
 python manage.py startapp myapp
@@ -70,13 +70,25 @@ python manage.py startapp myapp
 
 ---
 
-### 📌 Step 6: Register the App
+### 📌 Step 6 :-  Register the App
 
 Add `'myapp'` to the `INSTALLED_APPS` list inside `myproject/settings.py`.
 
 ---
 
-### ▶️ Step 7: Run the Development Server
+### 🗄️ Step 7 :-  Apply Initial Migrations
+
+Before running the server, apply the default migrations to set up the database:
+
+```bash
+python manage.py migrate
+```
+
+> ⚠️ This step is essential to avoid warnings and errors related to unapplied migrations.
+
+---
+
+### ▶️ Step 8 :-  Run the Development Server
 
 ```bash
 python manage.py runserver
