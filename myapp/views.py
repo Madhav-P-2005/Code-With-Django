@@ -41,7 +41,7 @@ Other useful keys in the request.META dictionary include :-
 
 1) 'HTTP_USER_AGENT':-  The client's user agent - the browser or the application that made the request.
 2) 'HTTP_REFERER'   :-  The URL of the page that is linked to the current page.
-30 'HTTP_HOST'      :-  The hostname of the server (for example, www.example.com), etc.
+3) 'HTTP_HOST'      :-  The hostname of the server (for example, www.example.com), etc.
 
 Django-Learning/myapp/views.py
 
