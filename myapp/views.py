@@ -60,6 +60,8 @@ def json_view(request):
 
 '''
 
+⭐) Introduction to URL Parameters and Query Parameters :- 
+
 ⭐) Add URL Parameters :-  URL parameters are parts of the URL that can be used to pass information to views. Also Known as " path parameter "
 
 '''
