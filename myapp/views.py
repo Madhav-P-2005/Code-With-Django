@@ -7,7 +7,7 @@ myapp/views.py
 '''
 
 
-# from django.http import HttpResponse
+# from django.http import HttpResponse          # 🌐 HttpRequest Docs :-  https://docs.djangoproject.com/en/5.2/ref/request-response/
 
 # def home(request):
 #     return HttpResponse('Hello , world')
@@ -48,7 +48,7 @@ Django-Learning/myapp/views.py
 '''
 
 
-from django.http import JsonResponse
+from django.http import HttpResponse ,JsonResponse
 
 def json_view(request):
     return JsonResponse({
@@ -56,3 +56,26 @@ def json_view(request):
         'status' : 'Success',
         'code' : 200
     })
+
+
+'''
+
+⭐) Add URL Parameters :-  URL parameters are parts of the URL that can be used to pass information to views. Also Known as " path parameter "
+
+'''
+
+def user_view(request , name):
+    return HttpResponse(f"Hello, {name}!")
+
+
+
+'''
+
+⭐) Utilize Query Parameters :-  Query parameters allow you to send additional information to your views using the URL. These come after the ? in a URL and are used to filter/search/pass data to the server.
+
+'''
+
+def search_view(request):
+    query = request.GET.get('q' , '')
+    category =request.GET.get('category', '')
+    return HttpResponse(f'You searched for: {query} in category: {category}')      # Path :- http://127.0.0.1:8000/search/?q=python&category=programming

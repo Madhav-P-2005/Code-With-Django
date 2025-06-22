@@ -146,6 +146,9 @@ Stay tuned — this repository will grow with more content, projects, and best p
 ## 📚 References
 
 * [Django Official Docs](https://docs.djangoproject.com/en/5.2/)
+* [🌐 HttpRequest Docs](https://docs.djangoproject.com/en/5.2/ref/request-response/)
+* [🔐 URLconf & Path Parameters](https://docs.djangoproject.com/en/5.2/topics/http/urls/)
+* [🧾 Handling Forms and Data](https://docs.djangoproject.com/en/5.2/topics/forms/)
 
 ---
 
