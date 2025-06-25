@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-brb)xugl_y%i!j1f4i@l618hrtfk(ntr#6*+b#ui_dsbsn9s#w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
 
+'''
+
+⭐) Handling 404 Errors in Django
+
+
+'''
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# or temporarily for testing
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

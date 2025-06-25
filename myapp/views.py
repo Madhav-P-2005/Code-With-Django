@@ -7,10 +7,10 @@ myapp/views.py
 '''
 
 
-# from django.http import HttpResponse          # 🌐 HttpRequest Docs :-  https://docs.djangoproject.com/en/5.2/ref/request-response/
+from django.http import HttpResponse          # 🌐 HttpRequest Docs :-  https://docs.djangoproject.com/en/5.2/ref/request-response/
 
-# def home(request):
-#     return HttpResponse('Hello , world')
+def home(request):
+    return HttpResponse('Hello , world')
 
 
 '''
@@ -66,8 +66,8 @@ def json_view(request):
 
 '''
 
-def user_view(request , name):
-    return HttpResponse(f"Hello, {name}!")
+# def user_view(request , name):
+#     return HttpResponse(f"Hello, {name}!")
 
 
 
@@ -81,3 +81,18 @@ def search_view(request):
     query = request.GET.get('q' , '')
     category =request.GET.get('category', '')
     return HttpResponse(f'You searched for: {query} in category: {category}')      # Path :- http://127.0.0.1:8000/search/?q=python&category=programming
+
+
+'''
+
+⭐) Defining a Custom 404 View 
+
+'''
+
+from django.http import HttpResponse
+
+def custom_404(request, exception):
+    # return HttpResponse('<h1>Hey there, page not found</h1>', status=404)     # Path :- http://127.0.0.1:8000/g
+
+    #  Modify the code to render a template when a 404 error occurs with the status code 404
+    return render(request,'home.html',status=404)     # Path :- http://127.0.0.1:8000/g

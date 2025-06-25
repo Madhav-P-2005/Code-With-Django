@@ -1,10 +1,10 @@
-# from django.contrib import admin
-# from django.urls import path
-# from myapp import views 
+from django.contrib import admin
+from django.urls import path
+from myapp import views 
 
-# urlpatterns = [
-#     path('', views.home , name='home'),
-# ]
+urlpatterns = [
+    path('', views.home , name='home'),
+]
 
 
 '''
@@ -38,9 +38,18 @@ urlpatterns = [
     path('json/' , views.json_view, name='json_view'),     # Path :- http://127.0.0.1:8000/json/
 
     # This code sets up a URL pattern that captures the user's name and passes it to the user_view.
-    path('user/<str:name>/' , views.user_view , name='user_view'),
+    # path('user/<str:name>/' , views.user_view , name='user_view'),
 
 
     # With this, when a user navigates to http://127.0.0.1:3000/search/?q=python, they will see the message You searched for: python, since the query parameter q=python is passed to the view.
-    path('search/', views.search_view , name='search_view')
+    path('search/', views.search_view , name='search_view'),
 ]
+
+
+'''
+
+⭐) Configuring Django to Use the Custom View
+
+'''
+
+handler404 = 'myapp.views.custom_404'
