@@ -111,15 +111,45 @@ from django.http import HttpResponse
 import sqlite3
 
 def get_items(request):
+
     # Create a new SQLite connection for each request
     connection = sqlite3.connect('db.sqlite3')
     items = []
+    
     try:
+
         # Retrive items from the database
         raw_query = 'Select * from items'
         items = connection.execute(raw_query).fetchall()
+
     finally:
+
         # Close the connection to ensure it is not reused 
         connection.close()
 
     return HttpResponse(items)
+
+
+
+'''
+
+⭐)  Defining and Exporting Django Models
+
+# Save and Retrieve Data 
+
+'''
+
+from django.http import HttpResponse
+
+from .models import item
+
+def add_and_get_items(request):
+
+    item = Item(name='Item 1')
+
+    item.save()   # Save item to database
+
+    items = Item.objects.all()    # Retrieve all items   (Returns the query set )
+
+    return HttpResponse(items)
+

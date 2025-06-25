@@ -34,13 +34,17 @@ try :
         raw_query = f"Insert into items (name) values('item{i}')"
         connection.execute(raw_query)
     connection.commit()
+
     '''
+
     Need to try :- 
+
     In SQL, you can use the LIKE operator to match patterns: WHERE name LIKE 'g%' will match any string that starts with 'g'
         
         raw_query = "SELECT * FROM items WHERE name LIKE 'h%'"
     
     '''
+    
 finally:
     # Close the database connection
     connection.close()
