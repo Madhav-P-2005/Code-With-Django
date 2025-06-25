@@ -128,3 +128,37 @@ def get_items(request):
         connection.close()
 
     return HttpResponse(items)
+
+
+
+'''
+
+⭐)  Defining and Exporting Django Models  :-  The views include the logic for interacting with the database using the model.
+
+'''
+
+from django.http import HttpResponse
+
+from .models import Song
+
+# The add_and_get_items view creates a new Item, saves it, and then retrieves all items from the database.
+def add_and_get_items(request):
+
+    # song = Song(title='Song 1', artist='Artist 1')
+
+    song = Song(artist='Krishnakumar Kunnath' , title = 'Lambi Judai')
+
+    song.save()   # Save item to database
+
+    songs = Song.objects.all()    # Retrieve all items   (Returns the query set)
+    # output = ', '.join(item.name for item in items)
+
+    songs_list = list(songs.values('title' , 'artist'))
+
+    # songs_str = ', '.join([str(song) for song in songs])
+
+    # return HttpResponse(f"Items : {output}")
+
+    # return HttpResponse(songs_str)      
+
+    return JsonResponse(songs_list, safe=False)

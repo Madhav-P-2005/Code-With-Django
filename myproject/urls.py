@@ -46,7 +46,11 @@ urlpatterns = [
 
 
     # URL Configuration :-  The URL /get-items/ is mapped to the get_items view and can be accessed to see the items.
-    path('get-items/' , views.get_items , name = 'get-items')      # Path :-  http://127.0.0.1:8000/get-items/
+    path('get-items/' , views.get_items , name = 'get-items'),      # Path :-  http://127.0.0.1:8000/get-items/
+
+    
+    # The urls.py file contains the URL patterns that map to the views. This is how we direct web requests to the correct view function.
+    path('add-and-get/', views.add_and_get_items)     # Path :-  http://127.0.0.1:8000/add-and-get/
 ]
 
 
@@ -56,4 +60,4 @@ urlpatterns = [
 
 '''
 
-handler404 = 'myapp.views.custom_404'
+# handler404 = 'myapp.views.custom_404'
