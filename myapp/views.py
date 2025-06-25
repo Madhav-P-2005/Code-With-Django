@@ -96,3 +96,30 @@ def custom_404(request, exception):
 
     #  Modify the code to render a template when a 404 error occurs with the status code 404
     return render(request,'home.html',status=404)     # Path :- http://127.0.0.1:8000/g
+
+
+
+'''
+
+⭐) Managing Data with SQLite and Django ORM 
+
+=> Connects to a SQLite database and retrieves data from it :- 
+
+'''
+
+from django.http import HttpResponse
+import sqlite3
+
+def get_items(request):
+    # Create a new SQLite connection for each request
+    connection = sqlite3.connect('db.sqlite3')
+    items = []
+    try:
+        # Retrive items from the database
+        raw_query = 'Select * from items'
+        items = connection.execute(raw_query).fetchall()
+    finally:
+        # Close the connection to ensure it is not reused 
+        connection.close()
+
+    return HttpResponse(items)

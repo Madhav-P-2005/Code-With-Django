@@ -43,6 +43,10 @@ urlpatterns = [
 
     # With this, when a user navigates to http://127.0.0.1:3000/search/?q=python, they will see the message You searched for: python, since the query parameter q=python is passed to the view.
     path('search/', views.search_view , name='search_view'),
+
+
+    # URL Configuration :-  The URL /get-items/ is mapped to the get_items view and can be accessed to see the items.
+    path('get-items/' , views.get_items , name = 'get-items')      # Path :-  http://127.0.0.1:8000/get-items/
 ]
 
 
