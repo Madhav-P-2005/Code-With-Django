@@ -22,7 +22,7 @@ class Song(models.Model):
 
 
     def __str__(self):
-        
+
         # return f"{self.title} - {self.artist}"        # Output :-  Song 1 - Artist 1
 
         return self.title      
@@ -37,3 +37,19 @@ class Song(models.Model):
     }
     
     '''
+
+
+
+'''
+
+⭐) Integrating SQLite3 with Django ORM and Creating a Model
+
+'''
+
+
+class ToDo(models.Model):
+
+    task = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.task

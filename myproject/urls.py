@@ -50,7 +50,11 @@ urlpatterns = [
 
     
     # The urls.py file contains the URL patterns that map to the views. This is how we direct web requests to the correct view function.
-    path('add-and-get/', views.add_and_get_items)     # Path :-  http://127.0.0.1:8000/add-and-get/
+    path('add-and-get/', views.add_and_get_items),     # Path :-  http://127.0.0.1:8000/add-and-get/
+
+
+    path('add-todo/' , views.add_todo, name='add_todo')
+
 ]
 
 

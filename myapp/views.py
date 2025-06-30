@@ -162,3 +162,37 @@ def add_and_get_items(request):
     # return HttpResponse(songs_str)      
 
     return JsonResponse(songs_list, safe=False)
+
+
+
+'''
+
+⭐) Integrating SQLite3 with Django ORM and Creating a Model :- Adding a new task via views.py
+
+
+⭐) Note the use of @csrf_exempt to disable CSRF protection for this view. CSRF protection :- Is a security feature to prevent cross-site request forgery attacks. In a production environment, you should handle CSRF protection properly but in this course, we will disable it for simplicity.
+
+'''
+
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import ToDo
+
+import json
+
+@csrf_exempt
+def add_todo(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        new_todo = ToDo(task=data['task'])
+
+        new_todo.save()
+
+        return JsonResponse({
+            'id' : new_todo.id,
+            'task' : new_todo.task
+        }, status=201)
+    return JsonResponse({
+        'message' : 'Invalid request'
+    }, status=400)
