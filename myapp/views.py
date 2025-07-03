@@ -431,7 +431,7 @@ def add_To_Do_3(request):
             }, status=400)
         
 
-        To_Dos_3 = data if isinstance(data,list) else data.get('To_Do_3', [])
+        To_Dos_3 = data if isinstance(data,list) else data.get('To_Do_3', [])    # isinstance(data, list)  →  Checks if the data variable is a list (like [{...}, {...}]).
 
         # This is is used when you're adding multiple to-dos at once
         if To_Dos_3:
