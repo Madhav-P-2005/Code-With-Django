@@ -1,6 +1,6 @@
 '''
 
-Django-Learning.py/populate_db.py
+Django-Learning/populate_db.py
 
 ⭐) Managing Data with SQLite and Django ORM
 

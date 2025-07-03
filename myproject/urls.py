@@ -53,8 +53,23 @@ urlpatterns = [
     path('add-and-get/', views.add_and_get_items),     # Path :-  http://127.0.0.1:8000/add-and-get/
 
 
-    path('add-todo/' , views.add_todo, name='add_todo')
+    path('add-todo/' , views.add_todo, name='add_todo'),
 
+
+    path('add-category/', views.add_category, name='add_category'),    # Path :- http://127.0.0.1:8000/add-category/
+    path('add-todo-with-category/', views.add_todo_with_category, name='add_todo_with_category'),   # Path :-  http://127.0.0.1:8000/add-todo-with-category/
+
+
+    path('add_To_Do_2',views.add_To_Do_2 , name='add_To_Do_2'),      # Path :-  
+
+
+    path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/,
+
+    path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/,
+
+    # path('get_completed_3/', views.get_completed_3, name='get_completed_3'),               # Path :- http://127.0.0.1:8000/get_completed_3/
+
+    path('get_filtered_To_Do_3/' , views.get_filtered_To_Do_3, name='get_filtered_To_Do_3')
 ]
 
 

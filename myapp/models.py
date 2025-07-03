@@ -53,3 +53,73 @@ class ToDo(models.Model):
 
     def __str__(self):
         return self.task
+    
+
+
+'''
+
+⭐) Creating Relationships Between Models :-  1) Connecting models using Django ORM    2) Creating views to handle data interactions involving related models
+
+'''
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+
+    def ___str__(self):
+        return self.name
+    
+'''
+
+Note :-  on_delete=models.CASCADE argument in the ForeignKey field. This argument specifies what happens when the linked category is deleted. In this case, it's set to CASCADE, which means that if a category is deleted, all tasks linked to that category will also be deleted.
+
+'''
+
+class To_Do(models.Model):
+    task = models.CharField(max_length=200)
+
+    category = models.ForeignKey(Category , on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.task
+    
+
+
+'''
+
+⭐) Validating Data with Django :- Adding custom validation rules to your Django models
+
+'''
+
+from django.core.exceptions import ValidationError
+
+
+def validate_task(value):
+    if len(value) < 3:
+        raise ValidationError('Task must be at least 3 characters long')
+
+class To_Do_2(models.Model):
+    task = models.CharField(max_length=200 , validators=[validate_task])
+
+    def __str__(self):
+        return self.task
+    
+
+
+'''
+
+⭐) Understanding Data Retrieval in Django ORM :- 
+
+'''
+
+class To_Do_3(models.Model):
+
+    # task = models.CharField(max_length=200)
+    # completed = models.BooleanField(default=False)
+
+    title = models.CharField(max_length=255, default='Untitled')
+    description = models.TextField(default=False)
+    completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.task
