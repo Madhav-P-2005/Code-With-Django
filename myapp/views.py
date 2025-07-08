@@ -176,7 +176,7 @@ def add_and_get_items(request):
 
 from django.views.decorators.csrf import csrf_exempt
 
-# from .models import ToDo
+from .models import ToDo
 
 import json
 
@@ -206,9 +206,9 @@ def add_todo(request):
 '''
 
 import json
-# from django.http import JsonResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-# from .models import Category , To_Do
+from .models import Category , To_Do
 
 @csrf_exempt
 def add_category(request):
@@ -284,7 +284,7 @@ Output :-
 
 '''
 
-# from .models import To_Do_2
+from .models import To_Do_2
 from django.core.exceptions import ValidationError
 
 @csrf_exempt
@@ -331,7 +331,7 @@ Output :-
 
 '''
 
-# from .models import To_Do_3
+from .models import To_Do_3
 import json
 
 @csrf_exempt
