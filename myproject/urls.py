@@ -77,6 +77,13 @@ urlpatterns = [
     path('preload/' , views.preload ,name = 'preload'),  # Path :- http://localhost:8000/preload/
 
     path('ToDos_preload/filter/' , views.get_todos_by_category_and_tag, name="get_todos_by_category_and_tag"),    # Path :- http://localhost:8000/ToDos_preload/filter/?category_preload=Home&tag_preload=Urgent
+
+
+    path('update_add_post_data/', views.Update_Example_add_Data, name="Update_Example_add_Data"),     # Path :- http://localhost:8000/update_add_post_data/
+    
+    path('To_Do_Update_Variable/<int:id>', views.Update_To_Do, name="Update_To_Do"),     # Path :- http://localhost:8000/To_Do_Update_Variable/1
+    
+    path('Fetched_ALL_To_Do_Update/', views.get_To_Dos_Update, name="get_To_Dos_Update")     # Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/
 ]
 
 

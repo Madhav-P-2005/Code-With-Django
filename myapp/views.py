@@ -685,3 +685,160 @@ Output :-    Path :-  http://localhost:8000/ToDos_preload/filter/?category_prelo
 }
 
 '''
+
+
+
+'''
+
+⭐) Updating Records by ID :-  Using the data from To_Do_3 Model ! 
+
+'''
+
+from django.views.decorators.http import require_http_methods
+
+from .models import To_Do_Update
+
+
+# Need to create a Update_add_data view ! not using preload for some data . 
+
+@csrf_exempt
+def Update_Example_add_Data(request):
+    if request.method == "POST":
+
+       try:
+           data = json.loads(request.body)
+
+           # Extract the data manually from request body
+           task_Variable =  data.get('task')    # user sends 'task' in JSON
+           completed_Variable =  data.get('completed')
+
+           print("Extracted task :- ", task_Variable)    # Output :- Extracted task: Study Python
+           print("Extracted completed :- ", completed_Variable)    # Output :- Extracted completed :-  True
+
+           # Now create a To_Do_Update object using this data
+           To_Do_Update_Variable = To_Do_Update(task_update=task_Variable, completed_update = completed_Variable)
+
+           To_Do_Update_Variable.save()
+           print("Saved to DB:", To_Do_Update_Variable.id)  # Output :- Saved to DB: 1
+
+           return JsonResponse({
+             'message' : "The Data for Update testing is Added Successfully. Now you can test for Update_To_Do", 'GET Data' : {
+                'id' : To_Do_Update_Variable.id,
+                'task': To_Do_Update_Variable.task_update,
+                'completed' : To_Do_Update_Variable.completed_update
+                }
+            }, status=201)
+    
+       except Exception as e:
+        return JsonResponse({
+            'error' : str(e)
+        } , status=400)
+      
+    return  JsonResponse({
+        'error' : "Invalid Input"
+    } , status=400)
+
+
+
+'''
+
+Input :- 
+
+{
+    "task":"Study Python",
+    "completed":true
+}
+
+Output :- Path :-  http://localhost:8000/update_add_post_data/
+
+{
+    "message": "The Data for Update testing is Added Successfully. Now you can test for Update_To_Do",
+    "GET Data": {
+        "id": 1,
+        "task": "Study Python",
+        "completed": true
+    }
+}
+
+'''
+
+@csrf_exempt
+@require_http_methods(['PUT'])   # PUT :- Replaces the entire resource. All fields must be sent, or they may reset.
+def Update_To_Do(request ,  id):
+
+    try:
+        To_Do_Update_Variable = get_object_or_404(To_Do_Update, id=id)
+
+        data = json.loads(request.body)
+
+        print("Json Data is :- ",data)    # Output :-  Json Data is :-  {'task': 'Study Flask'}
+
+        #  Only updating task_update (no force on completed_update)
+        To_Do_Update_Variable.task_update = data['task']
+
+        print("Extracted Task from user is :-  ",To_Do_Update_Variable)   # Output :-  Extracted Task from user is :-   Study Flask
+
+        To_Do_Update_Variable.save()
+
+        return JsonResponse({
+            'message' : "To Do of task content got  Updated"
+        })
+    except Exception as e:
+        return JsonResponse({
+            'error' : str(e)
+        } , status=400)
+    
+
+
+'''
+
+Input :- Path :- http://localhost:8000/To_Do_Update_Variable/1
+
+{
+    "task":"Study Flask"
+}
+
+Output :- 
+
+{
+    "message": "To Do of task content got  Updated"
+}
+
+'''
+
+
+@csrf_exempt
+def get_To_Dos_Update(request):
+    Fetched_ALL_To_Do_Update = To_Do_Update.objects.all()
+
+    # todos = Todo.objects.all().values('id', 'task', 'completed')
+    # return JsonResponse(list(todos), safe=False)
+
+
+    # List Comprehension Way :- manually construct a list of dictionaries
+    return JsonResponse({
+        'Fetched_ALL_To_Do_Update' : [
+            {
+                'id': Loop_Variable.id,
+                'task' : Loop_Variable.task_update,
+                'completed' : Loop_Variable.completed_update
+            }  for Loop_Variable in Fetched_ALL_To_Do_Update
+        ]
+    })
+
+
+'''
+
+Output :-   Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/
+
+{
+    "Fetched_ALL_To_Do_Update": [
+        {
+            "id": 1,
+            "task": "Study Flask",
+            "completed": true
+        }
+    ]
+}
+
+'''
