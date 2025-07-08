@@ -63,13 +63,20 @@ urlpatterns = [
     path('add_To_Do_2',views.add_To_Do_2 , name='add_To_Do_2'),      # Path :-  
 
 
-    path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/,
+    # path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/,
 
-    path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/,
+    # path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/,
+
+    #  Retrieving a Single Record by ID
+    # path('get_To_Dos_3/<int:id>/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/4/
 
     # path('get_completed_3/', views.get_completed_3, name='get_completed_3'),               # Path :- http://127.0.0.1:8000/get_completed_3/
 
-    path('get_filtered_To_Do_3/' , views.get_filtered_To_Do_3, name='get_filtered_To_Do_3')
+    # path('get_filtered_To_Do_3/' , views.get_filtered_To_Do_3, name='get_filtered_To_Do_3'),
+
+    path('preload/' , views.preload ,name = 'preload'),  # Path :- http://localhost:8000/preload/
+
+    path('ToDos_preload/filter/' , views.get_todos_by_category_and_tag, name="get_todos_by_category_and_tag"),    # Path :- http://localhost:8000/ToDos_preload/filter/?category_preload=Home&tag_preload=Urgent
 ]
 
 

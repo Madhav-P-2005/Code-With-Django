@@ -114,8 +114,9 @@ class To_Do_2(models.Model):
 
 class To_Do_3(models.Model):
 
-    # task = models.CharField(max_length=200)
-    # completed = models.BooleanField(default=False)
+    # Used in this topic too :- Retrieving a Single Record by ID
+    task = models.CharField(max_length=200)
+    completed = models.BooleanField(default=False)
 
     title = models.CharField(max_length=255, default='Untitled')
     description = models.TextField(default=False)
@@ -123,3 +124,22 @@ class To_Do_3(models.Model):
 
     def __str__(self):
         return self.task
+    
+
+
+
+'''
+
+⭐)  The preload() view is used to insert some default data into your database, only if it doesn’t already exist.
+
+'''
+
+class To_Do_preload_Example(models.Model):
+    task_preload = models.CharField(max_length=200)
+    completed_preload = models.BooleanField(default=False)
+    category_preload = models.CharField(max_length=100, default='Default Value! ')
+    tag_preload = models.CharField(max_length=100, default='')
+
+
+    def __str__(self):
+        return self.task_preload

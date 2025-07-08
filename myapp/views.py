@@ -176,7 +176,7 @@ def add_and_get_items(request):
 
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import ToDo
+# from .models import ToDo
 
 import json
 
@@ -208,7 +208,7 @@ def add_todo(request):
 import json
 # from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Category , To_Do
+# from .models import Category , To_Do
 
 @csrf_exempt
 def add_category(request):
@@ -284,7 +284,7 @@ Output :-
 
 '''
 
-from .models import To_Do_2
+# from .models import To_Do_2
 from django.core.exceptions import ValidationError
 
 @csrf_exempt
@@ -331,22 +331,22 @@ Output :-
 
 '''
 
-from .models import To_Do_3
+# from .models import To_Do_3
 import json
 
-# @csrf_exempt
-# def add_To_Do_3(request):
-#     if request.method == 'POST':
-#         data = json.loads(request.body)
-#         new_To_Do_3 =  To_Do_3(task=data['task'] , completed  = data.get('completed', False))
-#         new_To_Do_3.save()
+@csrf_exempt
+def add_To_Do_3(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        new_To_Do_3 =  To_Do_3(task=data['task'] , completed  = data.get('completed', False))
+        new_To_Do_3.save()
 
-#         return JsonResponse({
-#             'id' : new_To_Do_3.id , 'task': new_To_Do_3.task
-#         } , status=201)
-#     return JsonResponse({
-#         'message' : 'Invalid request'
-#     } , status=400)
+        return JsonResponse({
+            'id' : new_To_Do_3.id , 'task': new_To_Do_3.task
+        } , status=201)
+    return JsonResponse({
+        'message' : 'Invalid request'
+    } , status=400)
 
 
 '''
@@ -356,9 +356,9 @@ Output :-  added 4 json body content ...
 '''
 
 
-# def get_To_Dos_3(request):
-#     todos = To_Do_3.objects.all().values()
-#     return JsonResponse(list(todos) , safe=False)
+def get_To_Dos_3(request):
+    todos = To_Do_3.objects.all().values()
+    return JsonResponse(list(todos) , safe=False)
 
  
 '''
@@ -392,9 +392,9 @@ Output :-
 
 
 
-# def get_completed_3(request):
-#     todos = To_Do_3.objects.filter(completed = True).values()   # .values() :-  returns dicts instead of model objects → easier for JsonResponse.
-#     return JsonResponse(list(todos) , safe=False)
+def get_completed_3(request):
+    todos = To_Do_3.objects.filter(completed = True).values()   # .values() :-  returns dicts instead of model objects → easier for JsonResponse.
+    return JsonResponse(list(todos) , safe=False)
 
 
 '''
@@ -491,12 +491,30 @@ Output :-
 
 '''
 
-def get_To_Dos_3(request):
+from django.shortcuts import get_object_or_404
+
+def get_To_Dos_3(request,id): # Accept id from URL
+        
     # Should retrieve incomplete tasks and completed tasks 
-    To_Dos_3 = To_Do_3.objects.all().values()
-    return JsonResponse(list(To_Dos_3),  safe=False)
-    # or 
-    # return JsonResponse(list(To_Dos_3) , safe=True)
+    # To_Dos_3 = To_Do_3.objects.all().values()
+    # return JsonResponse(list(To_Dos_3),  safe=False)
+
+
+    # Model we are using to understand this concept is :- To_Do_3 from models.py 
+
+    # ⭐) Retrieving a Single Record by ID
+    # try:
+        # To_Dos_3 = To_Do_3.objects.get(id=id)
+
+        To_Dos_3 = get_object_or_404(To_Do_3, id=id)   # There is also a shortcut method get_object_or_404() that simplifies this process. It retrieves the object if it exists, or raises a 404 error if not found. for this no need of try and except .
+
+        return JsonResponse({
+            'id' : To_Dos_3.id ,'task' : To_Dos_3.task , 'completed' : To_Dos_3.completed
+        }, status=200)
+    # except To_Do_3.DoesNotExist:
+    #     return JsonResponse({
+    #         'message' : 'To_Do_3 not found'
+    #     },status=404)
 
 
 '''
@@ -532,6 +550,19 @@ Output :-
 
 ]
 
+'''
+
+# Retrieving a Single Record by ID
+
+'''
+
+Output :- http://127.0.0.1:8000/get_To_Dos_3/4/
+
+{
+    "id": 4,
+    "task": "False",
+    "completed": false
+}
 
 '''
 
@@ -565,5 +596,92 @@ def get_filtered_To_Do_3(request):
 Output :- 
 
 Filtered todos: [{'id': 2, 'task': 'Pay bills', 'completed': True}, {'id': 3, 'task': 'Clean house', 'completed': True}, {'id': 4, 'task': 'Clean the balcony', 'completed': False}]
+
+'''
+
+
+'''
+
+⭐) The preload() view is used to insert some default data into your database, only if it doesn’t already exist.
+
+'''
+
+from .models import To_Do_preload_Example
+
+@csrf_exempt
+def preload(request):
+
+    tasks = [
+        ('Do the laundry', False, 'Home', 'Urgent'),
+        ('Buy groceries', False, 'Shopping', 'Weekly'),
+        ('Call mom', True, 'Personal', 'Family')
+    ]
+
+    
+    for task_preload, completed_preload , category_preload , tag_preload in tasks:
+        if not To_Do_preload_Example.objects.filter(task_preload=task_preload).exists():
+
+            '''
+                
+            Left task is the field in your Todo model (i.e., models.CharField(...)).
+
+            Right task is the variable from your for loop (for task, completed, ...).
+
+            '''
+
+            To_Do_preload_Example.objects.create(
+                task_preload = task_preload,
+                completed_preload = completed_preload,
+                category_preload = category_preload,
+                tag_preload = tag_preload
+            )
+        
+        return JsonResponse({
+            'message' : 'Preloaded Successfully !'
+        })
+
+
+'''
+
+Output :-  path ;-http://localhost:8000/preload/
+
+{
+    "message": "Preloaded Successfully !"
+}
+
+'''
+
+
+def get_todos_by_category_and_tag(request):
+     category_preload = request.GET.get('category_preload')
+
+     tag_preload = request.GET.get('tag_preload')
+
+     if category_preload and tag_preload:
+         ToDos_preload = To_Do_preload_Example.objects.filter(category_preload=category_preload , tag_preload=tag_preload)
+
+         return JsonResponse({
+             'ToDos_preload' : list(ToDos_preload.values())
+         }, status=200)
+     return JsonResponse({
+         'message' : "Category and/or Tag not provided"
+     }, status=400)
+
+
+'''
+
+Output :-    Path :-  http://localhost:8000/ToDos_preload/filter/?category_preload=Home&tag_preload=Urgent
+
+{
+    "ToDos_preload": [
+        {
+            "id": 1,
+            "task_preload": "Do the laundry",
+            "completed_preload": false,
+            "category_preload": "Home",
+            "tag_preload": "Urgent"
+        }
+    ]
+}
 
 '''
