@@ -694,7 +694,7 @@ Output :-    Path :-  http://localhost:8000/ToDos_preload/filter/?category_prelo
 
 '''
 
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods   # Blocks all other HTTP methods (like GET, POST, DELETE, etc.)
 
 from .models import To_Do_Update
 
@@ -773,7 +773,7 @@ def Update_To_Do(request ,  id):
 
         print("Json Data is :- ",data)    # Output :-  Json Data is :-  {'task': 'Study Flask'}
 
-        #  Only updating task_update (no force on completed_update)
+        #  Only updating task_update (no force on completed_update)  (Wrong Way)
         To_Do_Update_Variable.task_update = data['task']
 
         print("Extracted Task from user is :-  ",To_Do_Update_Variable)   # Output :-  Extracted Task from user is :-   Study Flask
@@ -837,6 +837,207 @@ Output :-   Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/
             "id": 1,
             "task": "Study Flask",
             "completed": true
+        }
+    ]
+}
+
+'''
+
+
+from .models import To_Do_Patch
+
+@csrf_exempt
+def add_POST_Data_For_Patch(request):
+
+    if request.method == "POST":
+         
+         try:
+             data = json.loads(request.body)
+
+             Extracted_course = data.get("course")
+
+             Extracted_description = data.get('description')
+
+             Extracted_course_completed = data.get('course_completed')
+
+             print("Extracted Course Data :-  ",Extracted_course)
+
+             print("Extracted Description Data :-  ",Extracted_description)
+
+             print("Extracted Course Completed Data :-  ",Extracted_course_completed)
+
+             To_Do_Patch_Object  = To_Do_Patch(course=Extracted_course, description=Extracted_description, course_completed = Extracted_course_completed)
+         
+
+             To_Do_Patch_Object.save()
+             To_Do_Patch_Object.full_clean()
+
+             print("Saved to DB:", To_Do_Patch_Object.id)  # Output :- Saved to DB: 1
+
+             return JsonResponse({
+                 'meesage' : "To_Do Patch Data Added Successful. Now Ready for Patch Testing",
+                 "POST DAta" : [
+                     {
+                         'id' : To_Do_Patch_Object.id,
+                         'course' : To_Do_Patch_Object.course,
+                         'description':To_Do_Patch_Object.description,
+                         'completed':To_Do_Patch_Object.course_completed,
+                     }
+                 ]
+             },status=201)
+         except Exception as e:
+             return JsonResponse({
+                 'error' : str(e)
+             }, status=400)
+         
+    return JsonResponse({
+        'message' : "Invalid Input"
+    })
+         
+
+
+'''
+
+Input :-   Path :- http://localhost:8000/add_POST_Data_For_Patch/
+
+{
+    "course":"Django For Beginners",
+    "description": "○ Django is more feature-rich and follows the \"batteries-included\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.",
+    "course_completed": true
+}
+
+
+OUtput :- 
+
+{
+    "meesage": "To_Do Patch Data Added Successful. Now Ready for Patch Testing",
+    "POST DAta": [
+        {
+            "id": 6,
+            "course": "Django For Beginners",
+            "description": "○ Django is more feature-rich and follows the \"batteries-included\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.",
+            "completed": true
+        }
+    ]
+}
+
+'''
+            
+@csrf_exempt  
+def Update_Patch(request , course):
+
+    if request.method == 'PATCH':
+
+        try:
+            
+            # Step 1: Find the object by course
+            Update_Patch_Variable = get_object_or_404(To_Do_Patch , course=course)
+
+            # Step 2: Load incoming data
+            data = json.loads(request.body)
+
+            # Step 3: Update only fields provided in PATCH
+            if 'course' in data:
+                Update_Patch_Variable.course = data['course']
+
+            if 'description' in data:
+                Update_Patch_Variable.description = data['description']
+            
+            if 'completed' in data:
+                Update_Patch_Variable.course_completed = data['course_completed']
+
+            # Step 4: Save the updated object
+            Update_Patch_Variable.save()
+
+            # Step 5: Return response (with return!)
+            return JsonResponse({
+            'message' : "POST DATA Got Updated Using PATCH",
+            "Patch DATA (Partically Updated)":
+                    [
+                        {
+                            "id" : Update_Patch_Variable.id,
+                            "course":Update_Patch_Variable.course,
+                            "description":Update_Patch_Variable.description,
+                            "course_completed":Update_Patch_Variable.course_completed
+                        }
+                    ]
+            }, status=201)
+        except Exception as e:
+            return JsonResponse({
+                "error" : str(e)
+            }, status=400)
+    return JsonResponse({
+        "error"  : "Invalid Input -  PATCH Only"
+    })
+
+
+
+'''
+
+Input :-  Path :- http://localhost:8000/Update_Patch/Django For Beginners/
+
+{
+    "description": " 1) Django is more feature-rich and follows the \"batteries-included\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution."
+}
+
+
+Output :- 
+
+{
+    "message": "POST DATA Got Updated Using PATCH",
+    "Patch DATA (Partically Updated)": [
+        {
+            "id": 7,
+            "course": "Django For Beginners",
+            "description": " 1) Django is more feature-rich and follows the \"batteries-included\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.",
+            "course_completed": true
+        }
+    ]
+}
+
+
+'''
+
+
+
+def get_Patch_Data(request):
+
+    try:
+
+         Fetched_Patch_Data_Object = To_Do_Patch.objects.all()
+
+         return JsonResponse({
+             'message' : "Retrieval of Patch DATA successfull",
+             " Fetched_Patch_Data_Object ":[
+            {
+                "id" : Loop_DATA.id,
+                "course" : Loop_DATA.course,
+                "description": Loop_DATA.description,
+                "course_completed":Loop_DATA.course_completed
+
+            }
+            for Loop_DATA in Fetched_Patch_Data_Object
+           ]
+         } ,status=201)
+    except Exception as e:
+        return JsonResponse({
+            'error' : str(e)
+        }, status=400)
+    
+
+
+'''
+
+Output :-   Path :- 
+
+{
+    "message": "Retrieval of Patch DATA successfull",
+    " Fetched_Patch_Data_Object ": [
+        {
+            "id": 7,
+            "course": "Django For Beginners",
+            "description": " 1) Django is more feature-rich and follows the \"batteries-included\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.",
+            "course_completed": true
         }
     ]
 }

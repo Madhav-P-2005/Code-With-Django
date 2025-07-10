@@ -80,10 +80,17 @@ urlpatterns = [
 
 
     path('update_add_post_data/', views.Update_Example_add_Data, name="Update_Example_add_Data"),     # Path :- http://localhost:8000/update_add_post_data/
-    
+
     path('To_Do_Update_Variable/<int:id>', views.Update_To_Do, name="Update_To_Do"),     # Path :- http://localhost:8000/To_Do_Update_Variable/1
     
-    path('Fetched_ALL_To_Do_Update/', views.get_To_Dos_Update, name="get_To_Dos_Update")     # Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/
+    path('Fetched_ALL_To_Do_Update/', views.get_To_Dos_Update, name="get_To_Dos_Update"),     # Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/,
+
+    path('add_POST_Data_For_Patch/' , views.add_POST_Data_For_Patch, name='add_POST_Data_For_Patch'),  # Path :- http://localhost:8000/add_POST_Data_For_Patch/,
+
+    path('Update_Patch/<str:course>/' , views.Update_Patch , name='Update_Patch'),   # Path :- http://localhost:8000/Update_Patch/Django For Beginners/
+
+
+    path('get_Patch_Data/' , views.get_Patch_Data, name="get_Patch_Data")   # Path :- http://localhost:8000/get_Patch_Data/
 ]
 
 

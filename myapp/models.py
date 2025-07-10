@@ -161,3 +161,17 @@ class To_Do_Update(models.Model):
 
     def __str__(self):
         return self.task_update
+    
+
+
+class To_Do_Patch(models.Model):
+
+    course = models.CharField(max_length=200)
+
+    description = models.TextField(max_length=200)
+
+    course_completed = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.course
