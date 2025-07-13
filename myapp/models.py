@@ -175,3 +175,24 @@ class To_Do_Patch(models.Model):
 
     def __str__(self):
         return self.course
+    
+
+
+'''
+
+⭐) Deleting Records by ID :-   Using To_Do_3 Model .
+
+'''
+
+class To_Do_3(models.Model):
+
+    # Used in this topic too :- Retrieving a Single Record by ID  and also using in Updating Records by ID 
+    task = models.CharField(max_length=200)
+    completed = models.BooleanField(default=False)
+
+    # title = models.CharField(max_length=255, default='Untitled')
+    # description = models.TextField(default=False)
+    # completed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.task

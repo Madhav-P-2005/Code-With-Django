@@ -31,6 +31,7 @@ Djano-Learning/myproject/urls.py
 from myapp import views
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
 
     path('' , include('myapp.urls')),
@@ -38,7 +39,7 @@ urlpatterns = [
     path('json/' , views.json_view, name='json_view'),     # Path :- http://127.0.0.1:8000/json/
 
     # This code sets up a URL pattern that captures the user's name and passes it to the user_view.
-    # path('user/<str:name>/' , views.user_view , name='user_view'),
+    path('user/<str:name>/' , views.user_view , name='user_view'),
 
 
     # With this, when a user navigates to http://127.0.0.1:3000/search/?q=python, they will see the message You searched for: python, since the query parameter q=python is passed to the view.
@@ -60,19 +61,19 @@ urlpatterns = [
     path('add-todo-with-category/', views.add_todo_with_category, name='add_todo_with_category'),   # Path :-  http://127.0.0.1:8000/add-todo-with-category/
 
 
-    path('add_To_Do_2',views.add_To_Do_2 , name='add_To_Do_2'),      # Path :-  
+    path('add_To_Do_2',views.add_To_Do_2 , name='add_To_Do_2'),      # Path :- http://127.0.0.1:8000/add_To_Do_2/ 
 
 
-    # path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/,
+    path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/
 
-    # path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/,
+    path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/
 
     #  Retrieving a Single Record by ID
-    # path('get_To_Dos_3/<int:id>/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/4/
+    path('get_To_Dos_3/<int:id>/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/4/
 
-    # path('get_completed_3/', views.get_completed_3, name='get_completed_3'),               # Path :- http://127.0.0.1:8000/get_completed_3/
+    path('get_completed_3/', views.get_completed_3, name='get_completed_3'),               # Path :- http://127.0.0.1:8000/get_completed_3/
 
-    # path('get_filtered_To_Do_3/' , views.get_filtered_To_Do_3, name='get_filtered_To_Do_3'),
+    path('get_filtered_To_Do_3/' , views.get_filtered_To_Do_3, name='get_filtered_To_Do_3'),
 
     path('preload/' , views.preload ,name = 'preload'),  # Path :- http://localhost:8000/preload/
 
@@ -83,14 +84,24 @@ urlpatterns = [
 
     path('To_Do_Update_Variable/<int:id>', views.Update_To_Do, name="Update_To_Do"),     # Path :- http://localhost:8000/To_Do_Update_Variable/1
     
-    path('Fetched_ALL_To_Do_Update/', views.get_To_Dos_Update, name="get_To_Dos_Update"),     # Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/,
+    path('Fetched_ALL_To_Do_Update/', views.get_To_Dos_Update, name="get_To_Dos_Update"),     # Path :- http://localhost:8000/Fetched_ALL_To_Do_Update/
 
-    path('add_POST_Data_For_Patch/' , views.add_POST_Data_For_Patch, name='add_POST_Data_For_Patch'),  # Path :- http://localhost:8000/add_POST_Data_For_Patch/,
+    path('add_POST_Data_For_Patch/' , views.add_POST_Data_For_Patch, name='add_POST_Data_For_Patch'),  # Path :- http://localhost:8000/add_POST_Data_For_Patch/
 
     path('Update_Patch/<str:course>/' , views.Update_Patch , name='Update_Patch'),   # Path :- http://localhost:8000/Update_Patch/Django For Beginners/
 
 
-    path('get_Patch_Data/' , views.get_Patch_Data, name="get_Patch_Data")   # Path :- http://localhost:8000/get_Patch_Data/
+    path('get_Patch_Data/' , views.get_Patch_Data, name="get_Patch_Data"),   # Path :- http://localhost:8000/get_Patch_Data/
+
+
+    # Again Using for DELETE TESTING ! 
+
+    path('add_To_Do_3/', views.add_To_Do_3, name='add_To_Do_3'),                  # Path :-  http://127.0.0.1:8000/add_To_Do_3/
+
+    path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/
+
+    path('Delete_To_Do/<int:id>' , views.Delete_To_Do, name="Delete_To_Do")  # Path :-  http://127.0.0.1:8000/Delete_To_Do/1
+    
 ]
 
 

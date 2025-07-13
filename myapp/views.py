@@ -417,6 +417,7 @@ Output :-
 '''
 
 
+
 # Method Two :- 
 
 @csrf_exempt
@@ -1041,5 +1042,113 @@ Output :-   Path :-
         }
     ]
 }
+
+'''
+
+
+'''
+
+⭐) Deleting Records by ID  :- Using  To_Do_3 Model 
+
+Added Data :- From :- POST for add_To_Do for DELETE TESTING  . Path :-   http://127.0.0.1:8000/add_To_Do_3/
+
+Input :-   
+
+{
+        "id": 1,
+        "task": "MERN Course",
+        "completed": true
+}
+
+
+{
+        "id": 2,
+        "task": "MERN Course",
+        "completed": true
+}
+
+
+{
+        "id": 3,
+        "task": "MERN Course",
+        "completed": true
+}
+
+
+Output from  :- GET for To_Do_3 ( get_To_Dos_3 ) For DELETE Checking !    Path :-  http://127.0.0.1:8000/get_To_Dos_3/
+
+
+[
+    {
+        "id": 1,
+        "task": "Django Course",
+        "completed": false
+    },
+    {
+        "id": 2,
+        "task": "Flask Course",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "task": "MERN Course",
+        "completed": true
+    }
+]
+
+'''
+
+
+from .models import To_Do_3
+
+@csrf_exempt
+def Delete_To_Do(request, id):
+
+    if request.method == "DELETE":
+
+        try:
+
+             To_Do_Object = get_object_or_404(To_Do_3 , id=id)  # Alternative :- To_Do_3.objects.get(id=id)
+
+             To_Do_Object.delete()
+             return JsonResponse({
+                 'message' : "To_Do_Object Got Deleted  !"
+             })
+        except : 
+            return JsonResponse({
+                'message' : "To_Do_Object Not Found"
+            } , status=404)
+    return JsonResponse({
+        'message' : "Invalid Request"
+    } , status=400)
+
+
+
+'''
+
+Path :-  http://127.0.0.1:8000/Delete_To_Do/1
+
+Output :- 
+
+{
+    "message": "To_Do_Object Got Deleted  !"
+}
+
+
+Checking Output from :- GET for To_Do_3 ( get_To_Dos_3 ) For DELETE Checking !    Path :-  http://127.0.0.1:8000/get_To_Dos_3/
+
+
+[
+    {
+        "id": 2,
+        "task": "Flask Course",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "task": "MERN Course",
+        "completed": true
+    }
+]
 
 '''
