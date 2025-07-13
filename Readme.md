@@ -91,6 +91,7 @@ python manage.py migrate
 ### ▶️ Step 8 :-  Run the Development Server
 
 ```bash
+python manage.py makemigrations
 python manage.py runserver
 ```
 
