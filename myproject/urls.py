@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from myapp import views 
+from myapp import views , views2
 
 urlpatterns = [
     path('', views.home , name='home'),
@@ -39,7 +39,7 @@ urlpatterns = [
     path('json/' , views.json_view, name='json_view'),     # Path :- http://127.0.0.1:8000/json/
 
     # This code sets up a URL pattern that captures the user's name and passes it to the user_view.
-    path('user/<str:name>/' , views.user_view , name='user_view'),
+    # path('user/<str:name>/' , views.user_view , name='user_view'),
 
 
     # With this, when a user navigates to http://127.0.0.1:3000/search/?q=python, they will see the message You searched for: python, since the query parameter q=python is passed to the view.
@@ -100,7 +100,17 @@ urlpatterns = [
 
     path('get_To_Dos_3/', views.get_To_Dos_3, name='get_To_Dos_3'),                  # Path :- http://127.0.0.1:8000/get_To_Dos_3/
 
-    path('Delete_To_Do/<int:id>' , views.Delete_To_Do, name="Delete_To_Do")  # Path :-  http://127.0.0.1:8000/Delete_To_Do/1
+    path('Delete_To_Do/<int:id>' , views.Delete_To_Do, name="Delete_To_Do"),     # Path :-  http://127.0.0.1:8000/Delete_To_Do/1
+
+
+
+    # ⭐) Implement basic user authentication (views2.py) :- 
+
+    path('register/' , views2.register, name="register"),     # Path :- http://127.0.0.1:8000/register/
+
+    path('login/' , views2.user_login, name="login"),        # Path :- http://127.0.0.1:8000/login/
+
+    path('logout/' , views2.user_logout, name="logout"),
     
 ]
 
