@@ -4,6 +4,7 @@
 '''
 
 from django.views.decorators.csrf import csrf_exempt
+
 from django.http import JsonResponse
 
 from django.contrib.auth.models import User   # So even if you don’t define your own model, Django is using User model under the hood to store these values in the auth_user table in the database.
