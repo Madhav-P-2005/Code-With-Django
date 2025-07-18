@@ -82,3 +82,143 @@ class LoggingMiddleware:
 
         response = self.get_response(request)
         return response
+    
+
+
+
+
+'''
+
+⭐) Protecting Routes with Middleware :- 
+
+⭐) The AuthMiddleware class checks if the current route is in the unprotected_routes list. If it is, the middleware allows the request to proceed. This is useful for routes like login, register, and logout, which should be accessible to all users regardless of authentication status. Notice, that we use the resolve function to get the current route name.
+
+
+⭐) If the route is not in the unprotected_routes list, the middleware checks if the request has a valid Authorization header. If not, it returns a 401 Unauthorized response. Notice that the token 'abc123' is hardcoded here for demonstration purposes. In a real-world scenario, you would validate the token against a database.
+
+
+=> These are two different systems in real life :- 
+
+       a) Session-based auth (uses cookies and Django sessions)
+
+       b) Token-based auth (used in APIs)
+
+       
+🔑 You are manually simulating token-based auth :- 
+
+    1) You return a fixed token on login (abc123)
+
+    2) You check that token manually in middleware
+
+    3) If the header is missing or wrong → Access Denied
+
+'''
+
+from django.http import JsonResponse
+from django.urls import resolve
+
+class AuthMiddleware:
+     
+     def __init__(self , get_response):
+          self.get_response = get_response
+
+
+     def __call__(self, request):
+        print("🚀 AuthMiddleware triggered")
+          
+        try:
+
+             # The line returns the view function for the current route , for example, 'www.example.com/login' resolves to 'login'
+            current_route = resolve(request.path_info).url_name
+
+            print(f"🔍 Current route: {current_route}")    # Output :- protected_route
+
+        except Exception as e:
+
+            print(f"❌ Failed to resolve route: {e}")
+
+            current_route = None
+
+        # Skip token check for these routes
+        unprotected_routes = ['login' , 'register' , 'logout']
+
+
+        # Only apply authentication for routes NOT in the unprotected list
+        if current_route not in unprotected_routes:
+            auth_header = request.headers.get('Authorization') #   # 'Authorization' is not user-defined — it's a standard/predefined HTTP header used for sending authentication credentials like tokens, API keys, or basic auth details.
+
+            print(f"🔐 Authorization Header: {auth_header}")
+
+            if auth_header != 'Token abc123':
+                print("❌ Access Denied!")
+                return JsonResponse({'message': 'Access Denied'}, status=401)
+
+
+        print("✅ Access Granted")
+
+        # return self.get_response(request)
+
+        response = self.get_response(request)
+        print("Response :- " , response)   # Output :- Response :-  <JsonResponse status_code=200, "application/json">
+        return response 
+
+
+
+
+'''
+
+Input :-  Path :- http://127.0.0.1:8000/protected_route/
+
+
+Output :-  (Without Headers)
+
+{
+    "message": "Access Denied"
+}
+
+
+'''
+
+
+
+'''
+
+With Headers :-   Path :- http://127.0.0.1:8000/protected_route/
+
+Input :- 
+
+Key: Authorization
+Value: Token abc123
+
+
+
+Output :- 
+
+{
+    "message": "This is Protected Route !"
+}
+
+
+
+Way 2 :-   Path :- http://127.0.0.1:8000/protected_route/
+
+
+Input :- 
+
+Key: Authorization
+Value: q4w534523
+
+
+Output :- 
+
+🚀 AuthMiddleware triggered
+🔍 Current route :-  protected_view
+🔐 Authorization Header :-  q4w534523
+❌ Access Denied!
+
+
+{
+    "message": "Access Denied"
+}
+
+'''

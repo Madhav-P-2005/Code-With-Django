@@ -56,11 +56,14 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    'myapp.middleware.AuthMiddleware',     # Protecting Routes with Middleware
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'myapp.middleware.LoggingMiddleware'  # Custom middleware
+    'myapp.middleware.LoggingMiddleware',  # Custom middleware
 ]
 
 ROOT_URLCONF = 'myproject.urls'

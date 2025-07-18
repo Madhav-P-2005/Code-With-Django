@@ -16,7 +16,7 @@ A hands-on journey to mastering **Django**, one of the most powerful web framewo
 
 ## 🛠️ Project Setup
 
-### 📁 Step 1: Create a Project Directory
+### 📁 Step 1 :-  Create a Project Directory
 
 ```bash
 mkdir Django-Learning && cd Django-Learning

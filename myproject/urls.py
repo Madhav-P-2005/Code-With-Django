@@ -104,13 +104,15 @@ urlpatterns = [
 
 
 
-    # ⭐) Implement basic user authentication (views2.py) :- 
+    # ⭐) Implement basic user authentication  and  Middleware (views2.py) :- 
 
     path('register/' , views2.register, name="register"),     # Path :- http://127.0.0.1:8000/register/
 
     path('login/' , views2.user_login, name="login"),        # Path :- http://127.0.0.1:8000/login/
 
-    path('logout/' , views2.user_logout, name="logout"),
+    path('logout/' , views2.user_logout, name="logout"),      # Path :- http://127.0.0.1:8000/logout/ 
+
+    path('protected_route/', views2.protected_view , name="protected_view")     # Path :-  http://127.0.0.1:8000/protected_route/
     
 ]
 

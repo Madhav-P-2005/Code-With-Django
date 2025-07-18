@@ -1,5 +1,5 @@
 '''
-⭐) Implement Basic User authentication (views2.py)
+⭐) Implement Basic User authentication (views2.py)  and  Protecting Routes with Middleware
 
 '''
 
@@ -9,6 +9,8 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User   # So even if you don’t define your own model, Django is using User model under the hood to store these values in the auth_user table in the database.
 
 from django.contrib.auth import authenticate , login , logout
+
+from django.contrib.auth.decorators import login_required
 
 from django.middleware.csrf import get_token
 
@@ -43,7 +45,7 @@ def register(request):
               if not username or not email or not password:
                    return JsonResponse({
                       'error' : 'Username email , and password are required '
-                }, status=400)    # 400 indicates bad reques
+                }, status=400)    # 400 indicates bad request
         
 
               if User.objects.filter(username=username).exists():
@@ -122,10 +124,40 @@ def user_login(request):
         if user is not None:
             login(request , user)
 
+            # return JsonResponse({
+            #     'message' : 'User Logged in Successfully'
+            # } , status=201)
+
+
+            '''
+
+            ⭐) Returning Token in Login Response :-  To authenticate users, you need to return a token when they log in. This token can be used to authorize future requests. Here's an example of how you can return a token in the login response :-   
+            
+            # Return the CSRF token in the response. For simplicity, we are using a fixed token value.
+
+            '''
+
             return JsonResponse({
-                'message' : 'User Logged in Successfully'
-            } , status=201)
+                 'message' : 'User logged in successfully' , 'csrf_token' : 'abc123'
+            })
         
+        '''
+
+        Input :- 
+
+        {
+           "username" : "Madhav P",
+           "password" : 12345
+        }
+        
+        Output :- 
+
+        {
+           "message": "User logged in successfully",
+           "csrf_token": "abc123"
+        }
+
+        '''
 
         return JsonResponse({
             'error' : 'Invalid credentials'
@@ -186,3 +218,10 @@ Output :-
 }
 
 '''
+
+
+# @login_required
+def protected_view(request):
+     return JsonResponse({
+          'message' : 'This is Protected Route !'
+     })
