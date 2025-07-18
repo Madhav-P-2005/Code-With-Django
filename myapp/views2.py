@@ -25,7 +25,8 @@ def register(request):
               
               # data = request.POST  
               '''
-                  Note :- request.POST is used for x-www-form-urlencoded or multipart/form-data (i.e. HTML forms or file uploads).
+                  [Note :- request.POST is used for x-www-form-urlencoded or multipart/form-data (i.e. HTML forms or file uploads).]
+
               '''
 
               data = json.loads(request.body)
