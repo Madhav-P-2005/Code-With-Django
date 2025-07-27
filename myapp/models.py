@@ -196,3 +196,28 @@ class To_Do_3(models.Model):
 
     def __str__(self):
         return self.task
+    
+
+
+'''
+
+ ⭐)   Data Validation and Error Handling :- 
+
+'''
+
+from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User 
+
+def validate_to_do_length(value):
+    if len(value) < 5:
+        raise ValidationError("Task must be at least 5 Characters long.")
+    
+class To_Do_Validation(models.Model):
+        task = models.CharField(max_length=200, validators=[validate_to_do_length])
+        
+        completed  = models.BooleanField(default=False)
+
+        user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+        def __str__(self):
+            return self.task

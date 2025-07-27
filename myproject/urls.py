@@ -112,7 +112,12 @@ urlpatterns = [
 
     path('logout/' , views2.user_logout, name="logout"),      # Path :- http://127.0.0.1:8000/logout/ 
 
-    path('protected_route/', views2.protected_view , name="protected_view")     # Path :-  http://127.0.0.1:8000/protected_route/
+    # path('protected_route/', views2.protected_view , name="protected_view"),     # Path :-  http://127.0.0.1:8000/protected_route/
+
+
+
+    # ⭐) Data Validation and Error Handling
+    path('To_Do_Validation/', views2.add_To_Do_Validation, name='To_Do_Validation'),    # Path :-  http://127.0.0.1:8000/To_Do_Validation/
     
 ]
 

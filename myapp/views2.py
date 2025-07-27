@@ -2,7 +2,6 @@
 ⭐) Implement Basic User authentication (views2.py)  and  Protecting Routes with Middleware
 
 '''
-
 from django.views.decorators.csrf import csrf_exempt
 
 from django.http import JsonResponse
@@ -140,7 +139,9 @@ def user_login(request):
             '''
 
             return JsonResponse({
-                 'message' : 'User logged in successfully' , 'csrf_token' : 'abc123'
+                 'message' : 'User logged in successfully' , 
+                 'csrf_token' : 'abc123' , 
+                 'username': user.username   # For ⭐) Data Validation and Error Handling 
             })
         
         '''
@@ -223,7 +224,97 @@ Output :-
 
 
 # @login_required
-def protected_view(request):
-     return JsonResponse({
-          'message' : 'This is Protected Route !'
-     })
+# def protected_view(request):
+#      return JsonResponse({
+#           'message' : 'This is Protected Route !'
+#      })
+
+
+
+
+'''
+
+⭐) Data Validation and Error Handling  :- 
+
+'''
+
+from django.core.exceptions import ValidationError
+from .models import To_Do_Validation   
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def add_To_Do_Validation(request):
+
+    if request.method == "POST":
+
+        data = json.loads(request.body)
+        print("data :- ",data)       # Output :-  data :-  {'username': 'Madhav P Again for To_Do_Validation', 'task': 'Finish Django homework'}
+
+        task = data.get("task")    
+        print("task :- ",task)       # Output :-  task :-  Finish Django homework
+
+        # Simulated header check
+        token = request.headers.get("Authorization")
+        print("Token :- ",token)     # Output :-  Token :-  Token abc123
+
+        if token != "Token abc123":
+            return JsonResponse({"message": "Access Denied"}, status=403)
+
+        username = data.get("username")    #  <- pass this in your request body
+        print("Username :- ",username)        # Output :-  Username :-  Madhav P Again for To_Do_Validation
+
+        if not username:
+            return JsonResponse({"error": "Username is required"}, status=400)
+
+        try:
+            user = User.objects.get(username=username)
+            print("user :- ",user)        # Output :- user :-  Madhav P Again for To_Do_Validatio
+
+        except User.DoesNotExist:
+            return JsonResponse({"error": "Invalid user"}, status=400)
+
+        if not task:
+            return JsonResponse({"error": "Task is required"}, status=400)
+
+        new_todo = To_Do_Validation(task=task, user=request.user)  
+        print("user = request.user :- ",request.user) 
+
+        print("new_todo  :- ", new_todo)       # Output :- new_todo  :-  Finish Django homework
+        
+        try:
+            new_todo.full_clean()
+            new_todo.save()
+            return JsonResponse({
+                'message': 'To_Do added Successfully'
+            }, status=201)
+        except ValidationError as e:
+            return JsonResponse({
+                'error': e.message_dict
+            }, status=400)
+    
+    return JsonResponse({
+        'message': 'Invalid request'
+    }, status=400)
+
+
+
+'''
+
+Path :-  http://127.0.0.1:8000/To_Do_Validation/
+
+Input  :- 
+
+{
+  "username": "Madhav P Again for To_Do_Validation",
+  "task": "Finish Django homework"
+}
+
+
+Output :-
+
+{
+    "message": "To_Do added Successfully"
+}
+
+'''
