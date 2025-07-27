@@ -140,7 +140,8 @@ def user_login(request):
 
             return JsonResponse({
                  'message' : 'User logged in successfully' , 
-                 'csrf_token' : 'abc123' , 
+                #  'csrf_token' : 'abc123' , 
+                 'csrf_token' : 'Token ImplementingPagination2025',  # For ⭐) Implementing Pagination
                  'username': user.username   # For ⭐) Data Validation and Error Handling 
             })
         
@@ -224,10 +225,10 @@ Output :-
 
 
 # @login_required
-# def protected_view(request):
-#      return JsonResponse({
-#           'message' : 'This is Protected Route !'
-#      })
+def protected_view(request):
+     return JsonResponse({
+          'message' : 'This is Protected Route !'
+     })
 
 
 
@@ -258,8 +259,13 @@ def add_To_Do_Validation(request):
         token = request.headers.get("Authorization")
         print("Token :- ",token)     # Output :-  Token :-  Token abc123
 
-        if token != "Token abc123":
-            return JsonResponse({"message": "Access Denied"}, status=403)
+        # if token != "Token abc123":
+        #     return JsonResponse({"message": "Access Denied"}, status=403)
+
+        if token != "Token ImplementingPagination2025":
+            return JsonResponse({
+                "message" : f'Access Denied its not Token("ImplementingPagination2025") != {token}'
+            })
 
         username = data.get("username")    #  <- pass this in your request body
         print("Username :- ",username)        # Output :-  Username :-  Madhav P Again for To_Do_Validation
@@ -277,8 +283,11 @@ def add_To_Do_Validation(request):
         if not task:
             return JsonResponse({"error": "Task is required"}, status=400)
 
-        new_todo = To_Do_Validation(task=task, user=request.user)  
+        # new_todo = To_Do_Validation(task=task, user=request.user) 
+        #
         print("user = request.user :- ",request.user) 
+
+        new_todo = To_Do_Validation(task=task, user=user)    # ⭐) Implementing Pagination
 
         print("new_todo  :- ", new_todo)       # Output :- new_todo  :-  Finish Django homework
         
@@ -315,6 +324,146 @@ Output :-
 
 {
     "message": "To_Do added Successfully"
+}
+
+'''
+
+
+
+
+'''
+
+⭐) Implementing Pagination  :- Pagination divides your content into separate pages, making it easier for users to navigate through large sets of data.
+
+'''
+
+
+from django.http import JsonResponse
+from .models import To_Do_Validation
+
+@csrf_exempt
+def get_ToDos(request):
+    if request.method == "GET":
+
+        token = request.headers.get("Authorization")
+        if token !="Token ImplementingPagination2025":
+            return JsonResponse({
+                "message" : "Access Denied"
+            }, status=403)
+        
+        username = request.GET.get('username')    # <-  Pass it in the request 
+
+        if not username:
+            return JsonResponse({
+                "error" : "Username is required"
+            }, status=400)
+        
+        try : 
+
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return JsonResponse({
+                'error' : "Invalid user"
+            },status=400)
+        
+        
+        # Pagination Logic 
+        page = request.GET.get('page'  , 1)
+        page = int(page) if page.isdigit() else 1
+        # page = 1 if page < 1 else page
+        page = max(1 , page)
+
+        page_size = 3 
+        start_index = (page - 1) * page_size
+        end_index = start_index + page_size
+
+
+        # ToDos_Pagination_Content = To_Do_Validation.objects.filter(user=request.user)[start_index:end_index]
+        ToDos_Pagination_Content = To_Do_Validation.objects.filter(user=user)[start_index:end_index]
+
+        return JsonResponse({
+            'ToDos' : list(ToDos_Pagination_Content.values())     # Note that we use the values() method to serialize the tasks as dictionaries.
+        })
+    return JsonResponse({
+        "message" : "Only GET allowed"
+    }, status=405)
+
+
+
+'''
+
+Output :- 
+
+
+Path :-   http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=1
+
+{
+    "ToDos": [
+        {
+            "id": 7,
+            "task": "Django Task 1",
+            "completed": false,
+            "user_id": 3
+        },
+        {
+            "id": 8,
+            "task": "SQL Task 2",
+            "completed": false,
+            "user_id": 3
+        },
+        {
+            "id": 9,
+            "task": "MERN Task 3",
+            "completed": false,
+            "user_id": 3
+        }
+    ]
+}
+
+
+Path :- http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=2
+
+{
+    "ToDos": [
+        {
+            "id": 10,
+            "task": "Flask Task 4",
+            "completed": false,
+            "user_id": 3
+        },
+        {
+            "id": 11,
+            "task": "AWS Task 6",
+            "completed": false,
+            "user_id": 3
+        },
+        {
+            "id": 12,
+            "task": "React Native Task 7",
+            "completed": false,
+            "user_id": 3
+        }
+    ]
+}
+
+
+Path :-  http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=3
+
+{
+    "ToDos": [
+        {
+            "id": 13,
+            "task": "Python Task 8",
+            "completed": false,
+            "user_id": 3
+        },
+        {
+            "id": 14,
+            "task": "JavaScript Task 9",
+            "completed": false,
+            "user_id": 3
+        }
+    ]
 }
 
 '''

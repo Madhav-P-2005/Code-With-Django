@@ -118,6 +118,10 @@ urlpatterns = [
 
     # ⭐) Data Validation and Error Handling
     path('To_Do_Validation/', views2.add_To_Do_Validation, name='To_Do_Validation'),    # Path :-  http://127.0.0.1:8000/To_Do_Validation/
+
+
+    # ⭐) Implementing Pagination
+    path('get_ToDos_Pagination', views2.get_ToDos, name='get_ToDos_Pagination')   # Path :-   http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=1 
     
 ]
 

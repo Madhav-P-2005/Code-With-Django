@@ -149,7 +149,11 @@ class AuthMiddleware:
 
             print(f"🔐 Authorization Header: {auth_header}")
 
-            if auth_header != 'Token abc123':
+            # if auth_header != 'Token abc123':
+            #     print("❌ Access Denied!")
+            #     return JsonResponse({'message': 'Access Denied'}, status=401)
+            
+            if auth_header != 'Token ImplementingPagination2025':
                 print("❌ Access Denied!")
                 return JsonResponse({'message': 'Access Denied'}, status=401)
 
@@ -220,5 +224,43 @@ Output :-
 {
     "message": "Access Denied"
 }
+
+'''
+
+
+
+'''
+
+Output :-  ⭐) Implementing Pagination
+
+
+"GET /get_ToDos_Pagination?username=Madhav+P+Again+for+Pagination+Testing&page=3 HTTP/1.1" 200 157
+🚀 AuthMiddleware triggered
+🔍 Current route: get_ToDos_Pagination
+🔐 Authorization Header: Token ImplementingPagination2025
+✅ Access Granted
+Hey I got GET request for '/get_ToDos_Pagination'
+Hey I got GET request for request from IP Client :-  127.0.0.1
+Hey I got GET request from IP User Agent :-  python-requests/2.32.4
+Hey I got GET request from IP Http Referer :-  unknown
+Hey I got GET request from IP Http Host :-  127.0.0.1:8000
+Response :-  <JsonResponse status_code=200, "application/json">
+
+
+
+
+Way 2 :- Using Postman :- 
+
+🚀 AuthMiddleware triggered
+🔍 Current route: get_ToDos_Pagination
+🔐 Authorization Header: Token ImplementingPagination2025
+✅ Access Granted
+Hey I got GET request for '/get_ToDos_Pagination'
+Hey I got GET request for request from IP Client :-  127.0.0.1
+Hey I got GET request from IP User Agent :-  PostmanRuntime/7.44.1
+Hey I got GET request from IP Http Referer :-  unknown
+Hey I got GET request from IP Http Host :-  127.0.0.1:8000
+Response :-  <JsonResponse status_code=200, "application/json">
+[27/Jul/2025 14:39:22] "GET /get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=1%0A HTTP/1.1" 200 216
 
 '''
