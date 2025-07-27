@@ -1,0 +1,3126 @@
+{
+	"info": {
+		"_postman_id": "a62ce694-f8de-420c-9510-ea4b7ac4299e",
+		"name": "Code-With-Django (ToDo Testing)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38375474",
+		"_collection_link": "https://sigma-web-development-expressjs.postman.co/workspace/Sigma-Web-Development-~d148aa85-41de-49e8-b6dd-c83ab6ad3caf/collection/38375474-a62ce694-f8de-420c-9510-ea4b7ac4299e?action=share&source=collection_link&creator=38375474"
+	},
+	"item": [
+		{
+			"name": "DELETE Request Testing",
+			"item": [
+				{
+					"name": "GET for To_Do_3 ( get_To_Dos_3 ) For DELETE!",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_To_Dos_3",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for To_Do_3 for DELETE Checking ! ( # Response )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"get_To_Dos_3",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jul 2025 12:40:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "163"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"task\": \"Django Course\",\n        \"completed\": false\n    },\n    {\n        \"id\": 2,\n        \"task\": \"Flask Course\",\n        \"completed\": true\n    },\n    {\n        \"id\": 3,\n        \"task\": \"MERN Course\",\n        \"completed\": true\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "POST for add_To_Do for DELETE TESTING",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 3,\r\n        \"task\": \"MERN Course\",\r\n        \"completed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/add_To_Do_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_To_Do_3",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for add_To_Do for DELETE TESTING (# Response )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"id\": 3,\r\n        \"task\": \"MERN Course\",\r\n        \"completed\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/add_To_Do_3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"add_To_Do_3",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jul 2025 12:36:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": "{\n    \"id\": 3,\n    \"task\": \"MERN Course\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE for Delete_To_Do TESTING",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/Delete_To_Do/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"Delete_To_Do",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DELETE for Delete_To_Do TESTING ( # Response )",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/Delete_To_Do/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"Delete_To_Do",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jul 2025 12:46:22 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"To_Do_Object Got Deleted  !\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET for To_Do_3 ( get_To_Dos_3 ) For DELETE Output Checking !",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_To_Dos_3",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for To_Do_3 ( get_To_Dos_3 ) For DELETE Output Checking ! ( # Request )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"get_To_Dos_3",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 12 Jul 2025 12:59:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"task\": \"Flask Course\",\n        \"completed\": true\n    },\n    {\n        \"id\": 3,\n        \"task\": \"MERN Course\",\n        \"completed\": true\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PUT Request Testing ( Full Updating)",
+			"item": [
+				{
+					"name": "POST for Update_Example_add_Data (Update Testing)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\":\"Study Python\",\r\n    \"completed\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/update_add_post_data/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"update_add_post_data",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for Update_Example_add_Data (Update Testing)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"task\":\"Study Python\",\r\n    \"completed\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/update_add_post_data/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"update_add_post_data",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Jul 2025 04:23:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The Data for Update testing is Added Successfully. Now you can test for Update_To_Do\",\n    \"GET Data\": {\n        \"id\": 1,\n        \"task\": \"Study Python\",\n        \"completed\": true\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT for Update_To_Do",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\":\"Study Flask\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/To_Do_Update_Variable/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"To_Do_Update_Variable",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Patch for Update_To_Do  ( # Response )",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"task\":\"Study Flask\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/To_Do_Update_Variable/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"To_Do_Update_Variable",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Jul 2025 07:25:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"To Do of task content got  Updated\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET for Fetched_ALL_To_Do_Update",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\":\"Study Flask\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/Fetched_ALL_To_Do_Update/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"Fetched_ALL_To_Do_Update",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for Fetched_ALL_To_Do_Update ( # Response )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"task\":\"Study Flask\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/Fetched_ALL_To_Do_Update/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"Fetched_ALL_To_Do_Update",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 08 Jul 2025 07:33:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Fetched_ALL_To_Do_Update\": [\n        {\n            \"id\": 1,\n            \"task\": \"Study Flask\",\n            \"completed\": true\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PATCH Request Testing",
+			"item": [
+				{
+					"name": "POST for add_POST_Data_For_Patch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course\":\"Django For Beginners\",\r\n    \"description\": \"○ Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.\",\r\n    \"course_completed\": true\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/add_POST_Data_For_Patch/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"add_POST_Data_For_Patch",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for add_POST_Data_For_Patch ( # Response )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"course\":\"Django For Beginners\",\r\n    \"description\": \"○ Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.\",\r\n    \"completed\": true\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/add_POST_Data_For_Patch/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"add_POST_Data_For_Patch",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 05:22:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "333"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meesage\": \"To_Do Patch Data Added Successful. Now Ready for Patch Testing\",\n    \"POST DAta\": [\n        {\n            \"id\": 1,\n            \"course\": \"Django For Beginners\",\n            \"description\": \"○ Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "POST for add_POST_Data_For_Patch (# Response )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"course\":\"Django For Beginners\",\r\n    \"description\": \"○ Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.\",\r\n    \"course_completed\": true\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/add_POST_Data_For_Patch/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"add_POST_Data_For_Patch",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 06:49:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "352"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"meesage\": \"To_Do Patch Data Added Successful. Now Ready for Patch Testing\",\n    \"POST DAta\": [\n        {\n            \"id\": 6,\n            \"course\": \"Django For Beginners\",\n            \"description\": \"○ Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy.○ It includes built-in authentication, an admin panel, and ORM for database management.\",\n            \"completed\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "PATCH for Update_Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \" 1) Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8000/Update_Patch/Django For Beginners/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"Update_Patch",
+								"Django For Beginners",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PATCH for Update_Patch ( # Response )",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"description\": \" 1) Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8000/Update_Patch/Django For Beginners/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"Update_Patch",
+										"Django For Beginners",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 08:24:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "421"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"POST DATA Got Updated Using PATCH\",\n    \"Patch DATA (Partically Updated)\": [\n        {\n            \"id\": 7,\n            \"course\": \"Django For Beginners\",\n            \"description\": \" 1) Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.\",\n            \"course_completed\": true\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "GET for get_Patch_Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/get_Patch_Data/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"get_Patch_Data",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for get_Patch_Data ( # Response )",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/get_Patch_Data/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"get_Patch_Data",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 09 Jul 2025 08:43:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Retrieval of Patch DATA successfull\",\n    \" Fetched_Patch_Data_Object \": [\n        {\n            \"id\": 7,\n            \"course\": \"Django For Beginners\",\n            \"description\": \" 1) Django is more feature-rich and follows the \\\"batteries-included\\\" philosophy. 2) It includes built-in authentication, an admin panel, and ORM for database management. 3) Great for large-scale projects or when you need an all-in-one solution.\",\n            \"course_completed\": true\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "POST Request Testing",
+			"item": [
+				{
+					"name": "Adds a New Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\" : \"Task Assigned from postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/add-todo/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"add-todo",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post for  To Do 3 (add_To_Do_3)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\": \"DBMS Course\",\r\n    \"completed\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/add_To_Do_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_To_Do_3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST for (add_To_Do_3) - Method 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\"title\": \"clean\", \"description\": \"Study models\", \"completed\": false},\r\n  {\"title\": \"Flask\", \"description\": \"Learn about MVC\", \"completed\": true},\r\n  {\"title\": \"DBMS\", \"description\": \"Learn about DML and DDL\", \"completed\": true},\r\n  {\"title\": \"MERN\", \"description\": \"Study about MongoDB\", \"completed\": true}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/add_To_Do_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"add_To_Do_3",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET Request Testing",
+			"item": [
+				{
+					"name": "Get all the Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for To_Do_3 ( get_To_Dos_3 )",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_To_Dos_3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for To_Do_3 ( get_completed_3 )",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_completed_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_completed_3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for get_To_Dos_3 (Method - 2) ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_To_Dos_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_To_Dos_3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for get_filtered_To_Do_3 ( Using Q - i__contains ) ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_filtered_To_Do_3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_filtered_To_Do_3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ( Retrieving a Single Record by ID) To_Do_3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/get_To_Dos_3/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"get_To_Dos_3",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for preload",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/preload/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"preload",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET for get_todos_by_category_and_tag ( preloaded data)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/ToDos_preload/filter/?category_preload=Home&tag_preload=Urgent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"ToDos_preload",
+								"filter",
+								""
+							],
+							"query": [
+								{
+									"key": "category_preload",
+									"value": "Home"
+								},
+								{
+									"key": "tag_preload",
+									"value": "Urgent"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication, Authorization, & Security Testing",
+			"item": [
+				{
+					"name": "Data Validation And Error Handling",
+					"item": [
+						{
+							"name": "POST through register by  To_Do_Validation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P Again for To_Do_Validation\",\r\n    \"email\" : \"madhavp2023@klebcahubli.com\",\r\n    \"password\": 2005\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/register/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"register",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST through register by  To_Do_Validation ( # Response )",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"Madhav P Again for To_Do_Validation\",\r\n    \"email\" : \"madhavp2023@klebcahubli.com\",\r\n    \"password\": 2005\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/register/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"register",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 26 Jul 2025 13:52:11 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "43"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User registered successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "POST by login  for To_Do_Validation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P Again for To_Do_Validation\",\r\n    \"password\" : 2005\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST by login  for To_Do_Validation (# Response)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"Madhav P Again for To_Do_Validation\",\r\n    \"password\" : 2005\r\n}"
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/login/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"login",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 26 Jul 2025 13:54:46 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Vary",
+											"value": "Cookie"
+										},
+										{
+											"key": "Content-Length",
+											"value": "66"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "csrftoken=DrGFUQ459GebUNnv1B8vondMn1vrFXgq; expires=Sat, 25 Jul 2026 13:54:46 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "sessionid=y68dn4sov9xqiuy7tcanfu7m0f79zvtn; expires=Sat, 09 Aug 2025 13:54:46 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User logged in successfully\",\n    \"csrf_token\": \"abc123\"\n}"
+								}
+							]
+						},
+						{
+							"name": "POST by login for To_Do_Validation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token abc123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Madhav P Again for To_Do_Validation\",\r\n  \"task\": \"Finish Django homework\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/To_Do_Validation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"To_Do_Validation",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST by login for To_Do_Validation (# Response)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token abc123",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"Madhav P Again for To_Do_Validation\",\r\n  \"task\": \"Finish Django homework\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/To_Do_Validation/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"To_Do_Validation",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 26 Jul 2025 17:26:33 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "Vary",
+											"value": "Cookie"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"To_Do added Successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Implementing Pagination",
+					"item": [
+						{
+							"name": "POST by register for Pagination",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P Again for Pagination Testing\",\r\n    \"email\" : \"madhavp2023@pagination.com\",\r\n    \"password\": 2025\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/register/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"register",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST by register for Pagination (# Response)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"Madhav P Again for Pagination Testing\",\r\n    \"email\" : \"madhavp2023@pagination.com\",\r\n    \"password\": 2025\r\n}"
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/register/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"register",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 03:58:04 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "43"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User registered successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "POST by login for Pagination",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P Again for Pagination Testing\",\r\n    \"password\" : 2025\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "POST by login for Pagination (# Response)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"username\" : \"Madhav P Again for Pagination Testing\",\r\n    \"password\" : 2025\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/login/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"login",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 04:40:29 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Vary",
+											"value": "Cookie"
+										},
+										{
+											"key": "Content-Length",
+											"value": "145"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "csrftoken=0c4jJCIM4vE2xKaKQZnJcPwHZG5Uz9H9; expires=Sun, 26 Jul 2026 04:40:29 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "sessionid=3lqod0jjra2mbvs6wm8jcp9zfm1meupc; expires=Sun, 10 Aug 2025 04:40:29 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User logged in successfully\",\n    \"csrf_token\": \"Token ImplementingPagination2025\",\n    \"username\": \"Madhav P Again for Pagination Testing\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Post by To_Do_validation for Pagination",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token ImplementingPagination2025",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"Madhav P Again for Pagination Testing\",\r\n  \"task\": \"JavaScript Task 9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/To_Do_Validation/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"To_Do_Validation",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Post by To_Do_validation for Pagination (# Response)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token ImplementingPagination2025",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"username\": \"Madhav P Again for Pagination Testing\",\r\n  \"task\": \"JavaScript Task 9\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/To_Do_Validation/",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"To_Do_Validation",
+												""
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 07:54:19 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "39"
+										},
+										{
+											"key": "Vary",
+											"value": "Cookie"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"To_Do added Successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "GET by get_ToDos_Pagination for Pagination  1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token ImplementingPagination2025",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=1\n",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"get_ToDos_Pagination"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+										},
+										{
+											"key": "page",
+											"value": "1\n"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get by get_ToDos_Pagination for Pagination 1 (# Response)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token ImplementingPagination2025",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=1\n",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"get_ToDos_Pagination"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+												},
+												{
+													"key": "page",
+													"value": "1\n"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 09:09:22 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "216"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"ToDos\": [\n        {\n            \"id\": 7,\n            \"task\": \"Django Task 1\",\n            \"completed\": false,\n            \"user_id\": 3\n        },\n        {\n            \"id\": 8,\n            \"task\": \"SQL Task 2\",\n            \"completed\": false,\n            \"user_id\": 3\n        },\n        {\n            \"id\": 9,\n            \"task\": \"MERN Task 3\",\n            \"completed\": false,\n            \"user_id\": 3\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "GET by get_ToDos_Pagination for Pagination  2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token ImplementingPagination2025",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"get_ToDos_Pagination"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+										},
+										{
+											"key": "page",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GET by get_ToDos_Pagination for Pagination  2 ( # Response )",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token ImplementingPagination2025",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=2",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"get_ToDos_Pagination"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+												},
+												{
+													"key": "page",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 09:15:50 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "226"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"ToDos\": [\n        {\n            \"id\": 10,\n            \"task\": \"Flask Task 4\",\n            \"completed\": false,\n            \"user_id\": 3\n        },\n        {\n            \"id\": 11,\n            \"task\": \"AWS Task 6\",\n            \"completed\": false,\n            \"user_id\": 3\n        },\n        {\n            \"id\": 12,\n            \"task\": \"React Native Task 7\",\n            \"completed\": false,\n            \"user_id\": 3\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "GET by get_ToDos_Pagination for Pagination  3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token ImplementingPagination2025",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"get_ToDos_Pagination"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+										},
+										{
+											"key": "page",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "GET by get_ToDos_Pagination for Pagination  3  ( # Response )",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Token ImplementingPagination2025",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "http://127.0.0.1:8000/get_ToDos_Pagination?username=Madhav%20P%20Again%20for%20Pagination%20Testing&page=3",
+											"protocol": "http",
+											"host": [
+												"127",
+												"0",
+												"0",
+												"1"
+											],
+											"port": "8000",
+											"path": [
+												"get_ToDos_Pagination"
+											],
+											"query": [
+												{
+													"key": "username",
+													"value": "Madhav%20P%20Again%20for%20Pagination%20Testing"
+												},
+												{
+													"key": "page",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 27 Jul 2025 09:18:06 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.13.1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "157"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"ToDos\": [\n        {\n            \"id\": 13,\n            \"task\": \"Python Task 8\",\n            \"completed\": false,\n            \"user_id\": 3\n        },\n        {\n            \"id\": 14,\n            \"task\": \"JavaScript Task 9\",\n            \"completed\": false,\n            \"user_id\": 3\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"description": "In this section, you’ll learn how to implement pagination in your **Django** application. Pagination divides your content into separate pages, making it easier for users to navigate through large sets of data."
+				},
+				{
+					"name": "POST for register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"email\" : \"madhavp2023@gmail.com\",\r\n    \"password\" : 12345\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for register (# Response )",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"email\" : \"madhavp2023@gmail.com\",\r\n    \"password\" : 12345\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/register/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 06:02:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User registered successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST for user_login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for user_login (# Response)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 06:15:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=6ISsfc2Vjw1Jlxe82Fv5PlHgYA7Fntd5; expires=Thu, 16 Jul 2026 06:15:47 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=poix8nipr6r01yvh1iv0s7hmex9yciai; expires=Thu, 31 Jul 2025 06:15:47 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User Logged in Successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST for user_logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/logout/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"logout",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST for user_logout (# Response)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/logout/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"logout",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 06:24:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged out successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET for protected_route (Without Headers)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/protected_route/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"protected_route",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for protected_route (Without Headers  Response)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/protected_route/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"protected_route",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 12:22:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Access Denied\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET for protected_route (With Headers)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token abc123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/protected_route/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"protected_route",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET for protected_route (With Headers Response)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Token abc123",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/protected_route/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"protected_route",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 13:16:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"This is Protected Route !\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST using  protected_route  for user_login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST using  protected_route  for user_login (# Response)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\" : \"Madhav P\",\r\n    \"password\" : 12345\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/login/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 12:48:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=mQr0hKQdwn7XDyCIMXJrF9q6FDVM1e2i; expires=Thu, 16 Jul 2026 12:48:43 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=xm1dnjjuxqt19jwftbjzblh060s9ugg2; expires=Thu, 31 Jul 2025 12:48:43 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User logged in successfully\",\n    \"csrf_token\": \"abc123\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET using protected_route for Denial Request(With Headers)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "q4w534523",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/protected_route/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"protected_route",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET using protected_route for Denial Request(With Headers Response)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "q4w534523",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/protected_route/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"protected_route",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 17 Jul 2025 13:50:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.13.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Access Denied\"\n}"
+						}
+					]
+				}
+			],
+			"description": "StartFragment Understanding user authentication ensures that your application can manage user-specific data securely and provide each user with a personalized experience.EndFragment"
+		}
+	]
+}
