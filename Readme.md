@@ -118,15 +118,6 @@ python manage.py runserver
 | `wsgi.py`              | Interface for deploying the app using WSGI-compatible servers.                   |
 | `asgi.py` *(optional)* | Used for asynchronous applications (e.g., WebSockets).                           |
 
----
-
-## 📦 Tools Used
-
-* **Postman** for testing and documenting APIs
-* **GitHub** for version control and collaboration
-* **SQLite3** for lightweight database integration
-* **VS Code** as the code editor
-* **CodeSignal** as a learning platform
 
 ---
 
