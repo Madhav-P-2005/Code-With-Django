@@ -175,4 +175,4 @@ Thanks to **CodeSignal** for a structured, beginner-friendly path.
 
 ---
 
-# 🌟 Star this repo if it helped you — and feel free to fork, learn, and contribute
+### 🌟 Star this repo if it helped you — and feel free to fork, learn, and contribute.
