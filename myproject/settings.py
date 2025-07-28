@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-brb)xugl_y%i!j1f4i@l618hrtfk(ntr#6*+b#ui_dsbsn9s#w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
 
+'''
+
+⭐) Handling 404 Errors in Django
+
+
+'''
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# or temporarily for testing
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -40,14 +48,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+
+# Setting Up Middleware in settings.py
+# Django-Learning/ myproject/settings.py
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    'myapp.middleware.AuthMiddleware',     # Protecting Routes with Middleware
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myapp.middleware.LoggingMiddleware',  # Custom middleware
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -72,6 +88,8 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+# Setting up SQLite3 :-  (Configure SQLite3 in Django)
 
 DATABASES = {
     'default': {
@@ -115,7 +133,51 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# Configuring STatic Files in settings.py :- 
+
+# 1️⃣ STATIC_URL (🔸Predefined by Django)
+# Purpose :-  This is the **base URL prefix** used when referencing static files in your templates.
+# Example in HTML :-  <link href="{% static 'css/style.css' %}">
+# This will generate :-  /static/css/style.css
+# Do NOT rename this variable. It is predefined by Django.
+
+STATIC_URL = '/static/'   # The value '/static/' is user-defined — you can technically rename it.
+
+
+# 2️⃣ STATIC_ROOT (🔸Predefined by Django)
+# Purpose :-  This is the **final directory** where all static files will be collected (using collectstatic) during production.
+# This folder is created when you run `python manage.py collectstatic`.
+# Used in production to serve all static files from one place.
+# Do NOT rename this variable. It is predefined by Django.
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'   # 'staticfiles' is  user-defined → you can rename it as you like.
+
+
+# 3️⃣ STATICFILES_DIRS (🔸Predefined by Django)
+# Purpose :-  Tells Django where to look for additional static files (outside apps) **during development**.
+# Example :-  You want a common 'static' folder at the root level for global styles, JS, images, etc.
+#  'static' folder is user-defined → You can name it anything, but 'static' is a common convention.
+#  STATICFILES_DIRS variable name is predefined by Django – do not rename it.
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"   # This is user-defined: "static" is a folder you create; you can name it differently.
+]
+
+
+
+'''
+
+=> This is correct which one to use ? 
+
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+'''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
